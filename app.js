@@ -10,6 +10,10 @@ var app = express();
 var server = http.createServer(app);
 var io = socketIo(server);
 
+app.get('/usr/code/:codeId/:file', function(req, res){
+	res.sendFile(__dirname + '/savedFiles/' + req.params.codeId + '/' + req.params.file);
+});
+
 app.use(express.static(__dirname + '/public'));
 
 app.get("/", function(req, res){
@@ -41,6 +45,9 @@ app.get("/save/:codeId", function(req, res){
 io.on('connection', function(socket){
 	socket.on('joinRoom', function(roomName){
 		socket.join(roomName);
+		fs.readFile('./savedFiles/' + roomName + '/index.html', function(err, data){
+			socket.emit('codeChanged', data.toString());
+		});
 	});
 
 	socket.on('codeChanged', function(room, code){
@@ -53,8 +60,7 @@ io.on('connection', function(socket){
 
 		cp.on('close', function(){
 			fs.readFile('./savedFiles/' + room + '/index.html', function(err, data){
-				var ans = data.toString().split('`!').join('\n');
-				socket.to(room).emit('codeChanged', ans);
+				socket.to(room).emit('codeChanged', data.toString());
 			});
 		});
 		

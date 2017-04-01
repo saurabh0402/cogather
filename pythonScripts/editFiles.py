@@ -9,6 +9,8 @@ createFolderTo = os.path.join(saveFileTo,folder)
 file1 = 'index.html'
 
 writeFileHtml = open(os.path.join(createFolderTo,file1),'w')
+content = content.split('`!')
+content = '\n'.join(content)
 writeFileHtml.write(content)
 
 #readFileHtml = open(os.path.join(createFolderTo,file1),'r')
