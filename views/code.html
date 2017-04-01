@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> < co /> gather</title>
+	<title> < Co /> gather</title>
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/css/default.css">
 	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
@@ -13,62 +13,33 @@
 	<script class="userJs"></script>
 </head>
 <body>
+	<div class="header"> 
+		<img src="/images/logo.png" height="50px" style="float: left">.
+		<button style="float: right;margin: 0px 20px;" class = "downloadFile"> Download Code </button>
+	</div>
+	<div class="htm">
+		<div class="tag">HTML</div>
+		<textarea class="html"></textarea>
+	</div>
+	<div class="cs">
+		<div class="tag">CSS</div>
+		<textarea class="css"></textarea>
+	</div>
+	<div class="j">
+		<div class="tag">JavaScript</div>
+		<textarea class="js"></textarea>
+	</div>
 
-<div class="header"> 
-<img src="/images/logo.png" height="50px" style="float: left">.
-<button style="float: right;margin: 0px 20px;" class = "downloadFile"> Download Code </button>
-</div>
-<div class="htm">
-<div class="tag">HTML</div>
-<textarea class="html code"></textarea>
-</div>
-<div class="cs">
-<div class="tag">CSS</div>
-<textarea class="css"></textarea>
-</div>
-<div class="j">
-<div class="tag">JavaScript</div>
-	<textarea class="js"></textarea>
-</div>
-
-<div class="button wrapper">
-	<button> Disable HTML </button>
-</div>
-<div class="button wrapper">
-	<button onclick="disableCss()"> Disable CSS </button>
-</div>
-<div class="button wrapper">
-	<button onclick="disableJs()"> Disable JS </button>
-</div>
-<iframe class="output">
-</iframe>
-
-<script>	
-	var html = document.getElementsByClassName('html')[0];
-	var css = document.getElementsByClassName('css')[0];
-	var js = document.getElementsByClassName('js')[0];
-
-	// function disableCss(){
-	// 	document.getElementsByClassName('userCss')[0].style.display = "none";
-	// }
-	// function disableJs(){
-	// 	document.getElementsByClassName('userJs')[0].style.display = "none";
-	// }
-
-	html.oninput = function(){
-		var output = document.getElementsByClassName('output')[0];
-		output.innerHTML = html.value;
-	}
-	
-	css.oninput = function(){
-		var userCss = document.getElementsByClassName('userCss')[0];
-		userCss.innerText = css.value;
-	}
-	js.oninput = function(){
-		var userJs = document.getElementsByClassName('userJs')[0];
-		userJs.innerText = js.value;
-	}
-</script>
-<script src = "/js/main.js"> </script>
+	<div class="button wrapper">
+		<button> Disable HTML </button>
+	</div>
+	<div class="button wrapper">
+		<button onclick="disableCss()"> Disable CSS </button>
+	</div>
+	<div class="button wrapper">
+		<button onclick="disableJs()"> Disable JS </button>
+	</div>
+	<iframe class="output"></iframe>
+	<script src = "/js/main.js"> </script>
 </body>
 </html>

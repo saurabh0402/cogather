@@ -10,7 +10,15 @@ var app = express();
 var server = http.createServer(app);
 var io = socketIo(server);
 
+var languages = {
+	'html': 'index.html',
+	'css': 'main.css',
+	'js': 'main.js'
+};
+
 app.get('/usr/code/:codeId/:file', function(req, res){
+	if(req.params.file == 'index.html')
+		req.params.file = 'op.html';
 	res.sendFile(__dirname + '/savedFiles/' + req.params.codeId + '/' + req.params.file);
 });
 
@@ -45,22 +53,32 @@ app.get("/save/:codeId", function(req, res){
 io.on('connection', function(socket){
 	socket.on('joinRoom', function(roomName){
 		socket.join(roomName);
-		fs.readFile('./savedFiles/' + roomName + '/index.html', function(err, data){
-			socket.emit('codeChanged', data.toString());
+		fs.readFile('./savedFiles/' + roomName + '/' + languages['html'], function(err, data){
+			socket.emit('codeChanged', data.toString(), 'html');
+		});
+
+		fs.readFile('./savedFiles/' + roomName + '/' + languages['css'], function(err, data){
+			socket.emit('codeChanged', data.toString(), 'css');
+		});
+
+		fs.readFile('./savedFiles/' + roomName + '/' + languages['js'], function(err, data){
+			socket.emit('codeChanged', data.toString(), 'js');
 		});
 	});
 
-	socket.on('codeChanged', function(room, code){
+	socket.on('codeChanged', function(room, code, lang){
 		var cp = childProcess.spawn('python3', ['./pythonScripts/editFiles.py']);
 
 		cp.stdin.write(room + '\n', function(){
-			code = code.split('\n').join('`!');
-			cp.stdin.write(code + '\n');
+			cp.stdin.write(languages[lang] + '\n', function(){
+				code = code.split('\n').join('`!');
+				cp.stdin.write(code + '\n');
+			});
 		});
 
 		cp.on('close', function(){
-			fs.readFile('./savedFiles/' + room + '/index.html', function(err, data){
-				socket.to(room).emit('codeChanged', data.toString());
+			fs.readFile('./savedFiles/' + room + '/' + languages[lang], function(err, data){
+				socket.to(room).emit('codeChanged', data.toString(), lang);
 			});
 		});
 		

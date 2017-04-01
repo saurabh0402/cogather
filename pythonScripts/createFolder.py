@@ -25,9 +25,12 @@ except:
 file1 = 'index.html'
 file2 = 'main.css'
 file3 = 'main.js'
+file4 = 'op.html'
 fileHTML = open(os.path.join(createFolderTo,file1),'w')
 fileCSS = open(os.path.join(createFolderTo,file2),'w')
 fileJS = open(os.path.join(createFolderTo,file3),'w')
+fileOp = open(os.path.join(createFolderTo, file4), 'w')
 sys.stdout = fileHTML
 sys.stdout = fileCSS
 sys.stdout = fileJS
+sys.stdout = fileOp
