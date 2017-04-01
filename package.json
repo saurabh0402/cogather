@@ -1,0 +1,25 @@
+{
+  "name": "cogather",
+  "version": "0.0.1",
+  "description": "Code Together.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurabh0402/cogather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurabh0402/cogather/issues"
+  },
+  "homepage": "https://github.com/saurabh0402/cogather#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "socket.io": "^1.7.3"
+  }
+}
