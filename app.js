@@ -2,7 +2,9 @@ var http = require('http'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
-	socketIo = require('socket.io');
+	socketIo = require('socket.io'),
+	childProcess = require('child_process'),
+	fs = require('fs');
 
 var app = express();
 var server = http.createServer(app);
@@ -10,21 +12,17 @@ var io = socketIo(server);
 
 app.use(express.static(__dirname + '/public'));
 
-function createRandomString(){
-	var ans = '';
-	for(i = 0; i < 5; i++){
-		ans += String.fromCharCode(Math.floor(Math.random()*25) + 65);
-	}
-	return ans.toLowerCase();
-}
-
 app.get("/", function(req, res){
 	res.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/createNewLink", function(req, res){
-	var codeId = createRandomString();
-	res.redirect('/code/' + codeId);
+app.get("/createnewlink", function(req, res){
+	var cp = childProcess.spawn('python3', ['pythonScripts/createFolder.py']);
+	cp.stdout.on('data', function(name){
+		name = name.toString();
+		var codeId = name.trim();
+		res.redirect('/code/' + codeId);
+	})
 });
 
 app.get("/code/:codeId", function(req, res){
@@ -37,7 +35,20 @@ io.on('connection', function(socket){
 	});
 
 	socket.on('codeChanged', function(room, code){
-		socket.to(room).emit('codeChanged', code);
+		var cp = childProcess.spawn('python3', ['pythonScripts/editFiles.py']);
+
+		cp.stdin.write(room + '\n', function(){
+			code = code.split('\n').join('`!');
+			cp.stdin.write(code + '\n');
+		});
+
+		cp.on('close', function(){
+			fs.readFile('./savedFiles/' + room + '/index.html', function(err, data){
+				var ans = data.toString().split('`!').join('\n');
+				socket.to(room).emit('codeChanged', ans);
+			});
+		});
+		
 	});
 });
 

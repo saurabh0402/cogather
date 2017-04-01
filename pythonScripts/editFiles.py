@@ -1,18 +1,16 @@
 import os
 import sys
 
-folder = 'AISqZ'
-saveFileTo = '../savedFiles'
+folder = input()
+content = input()
+saveFileTo = './savedFiles'
 createFolderTo = os.path.join(saveFileTo,folder)
 
 file1 = 'index.html'
-readFileHtml = open(os.path.join(createFolderTo,file1),'r')
-htmlContent = readFileHtml.read()
-print(htmlContent)
 
-writeFileHtml = open(os.path.join(createFolderTo,file1),'a')
-
-content = input()
-
+writeFileHtml = open(os.path.join(createFolderTo,file1),'w')
 writeFileHtml.write(content)
-writeFileHtml.write('hello there again\n')
+
+#readFileHtml = open(os.path.join(createFolderTo,file1),'r')
+#htmlContent = readFileHtml.read()
+#print(htmlContent)

@@ -1,6 +1,7 @@
 import zipfile, os
-folder = 'AISqZ'
-saveFileTo = '../savedFiles'
+
+folder = input()
+saveFileTo = './savedFiles'
 createFolderTo = os.path.join(saveFileTo,folder)
 
 newZip = zipfile.ZipFile(os.path.join(createFolderTo,'new.zip'), 'a')

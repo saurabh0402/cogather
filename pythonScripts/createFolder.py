@@ -11,17 +11,12 @@ def randomFolderName(size=5, chars=string.ascii_uppercase + string.ascii_lowerca
 	return name
 
 cwd = os.getcwd()
-#print(cwd)
-#atul = "atul"
-#folderPath = cwd+'/pythonn'
-#directory = os.path.dirname(folderPath)
 folder = randomFolderName()
-saveFileTo = '../savedFiles'
+saveFileTo = './savedFiles'
 createFolderTo = os.path.join(saveFileTo,folder)
 
 try:
 	while(os.stat(folder)):
-#		print('hello')
 		folder = randomFolderName()
 except:
 	print(folder)
