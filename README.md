@@ -1,4 +1,4 @@
-# cogather
+![< co /> Gather logo](https://image.ibb.co/hwiV5a/logo.png)
 ### CodeTogether :alien::alien::alien:
 A codepen inspired web app that allows you to collaborate simultaneously and then save your work offline :alien:
 
