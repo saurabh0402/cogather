@@ -5,7 +5,7 @@ A codepen inspired web app that allows you to collaborate simultaneously and the
 ### Stack used:
  * HTML + CSS
  * JavaScript
- * PHP
+ * Python
  * Node.js + Socket.io
  
 ### Contributors:
