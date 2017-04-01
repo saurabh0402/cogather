@@ -29,13 +29,22 @@ app.get("/code/:codeId", function(req, res){
 	res.sendFile(__dirname + '/views/code.html');
 });
 
+app.get("/save/:codeId", function(req, res){
+	var id = req.params.codeId;
+	var cp = childProcess.spawn('python3', ['./pythonScripts/saveFiles.py']);
+	cp.stdin.write(id + '\n');
+	cp.on('close', function(){
+		res.sendFile(__dirname + '/savedFiles/' + id + '/' + id + '.zip');
+	});
+});
+
 io.on('connection', function(socket){
 	socket.on('joinRoom', function(roomName){
 		socket.join(roomName);
 	});
 
 	socket.on('codeChanged', function(room, code){
-		var cp = childProcess.spawn('python3', ['pythonScripts/editFiles.py']);
+		var cp = childProcess.spawn('python3', ['./pythonScripts/editFiles.py']);
 
 		cp.stdin.write(room + '\n', function(){
 			code = code.split('\n').join('`!');

@@ -18,6 +18,11 @@
 		socket.on('joined', function(){
 			console.log("Someone joined");
 		})
+
+		document.getElementsByClassName("saveFile")[0].addEventListener("click", function(e){
+			e.preventDefault();
+			window.open("/save/" + codeId);
+		});
 	}
 
 	window.onload = init;
