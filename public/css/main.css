@@ -130,8 +130,9 @@ button:hover {
 .output{
 	position: relative;
 	top:0px;
-	height: calc(100% - 510px);
+	height: calc(100% - 450px);
 	width: 100%;
+	overflow: auto;
 	color: #000;
 	border: none;
 	outline: none;
