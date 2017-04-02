@@ -12,21 +12,22 @@
 
 		html.addEventListener("input", function(){
 			socket.emit('codeChanged', codeId, this.value, 'html');
-			op.src = op.src;
 		});
 
 		css.addEventListener("input", function(){
 			socket.emit('codeChanged', codeId, this.value, 'css');
-			op.src = op.src;
 		});
 
 		js.addEventListener("input", function(){
 			socket.emit('codeChanged', codeId, this.value, 'js');
-			op.src = op.src;
 		});
 
 		socket.on('codeChanged', function(code, lang){
 			document.getElementsByClassName(lang)[0].value = code;
+			op.src = op.src;
+		});
+
+		socket.on('doneChangingCode', function(){
 			op.src = op.src;
 		});
 

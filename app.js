@@ -1,4 +1,4 @@
-var http = require('http'),
+var https = require('https'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
@@ -6,8 +6,16 @@ var http = require('http'),
 	childProcess = require('child_process'),
 	fs = require('fs');
 
+var option = {
+	key: fs.readFileSync('./certificates/server.key'),
+	cert: fs.readFileSync('./certificates/server.crt'),
+	ca: fs.readFileSync('./certificates/ca.crt'),
+	requestCert: true,
+    rejectUnauthorized: false
+}
+
 var app = express();
-var server = http.createServer(app);
+var server = https.createServer(option, app);
 var io = socketIo(server);
 
 var languages = {
@@ -39,6 +47,10 @@ app.get("/createnewlink", function(req, res){
 
 app.get("/code/:codeId", function(req, res){
 	res.sendFile(__dirname + '/views/code.html');
+});
+
+app.get('/video', function(req, res){
+	res.sendFile(__dirname + '/views/video.html');
 });
 
 app.get("/save/:codeId", function(req, res){
@@ -77,6 +89,7 @@ io.on('connection', function(socket){
 		});
 
 		cp.on('close', function(){
+			socket.emit('doneChangingCode');
 			fs.readFile('./savedFiles/' + room + '/' + languages[lang], function(err, data){
 				socket.to(room).emit('codeChanged', data.toString(), lang);
 			});
