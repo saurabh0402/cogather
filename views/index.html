@@ -3,19 +3,21 @@
 <html>
 <head>
 	<title> <Co/>Gather</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<script src="/js/jquery-3.2.0.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../public/css/style.css">
+	<script src="../public/js/jquery-3.2.0.min.js"></script>
 </head>
 <body onload="show()">
 
 <div class="about init">
-	
-	This Project is made to code in Real-Time. You can Write code together and can gather(That's why &lt;code/&gt;gather) it in somewhere in your computer directory. 
-	<br> You can have video chat during coding and share your ideas.
+
+	<div>	
+		This Project is made to code in Real-Time. You can Write code together and can gather(That's why &lt;code/&gt;gather) it in somewhere in your computer directory. 
+		<br> You can have video chat during coding and share your ideas.
+	</div>
 </div>
 
 <div class="header">
-	<img src="/images/logo.png" style="float: left; margin: 10px 10px" height="50px">
+	<img src="../public/images/logo.png" style="float: left; margin: 10px 10px" height="50px">
 </div>
 
 <div class="cube">
@@ -29,7 +31,7 @@
 
 
 <div class="footer">
-	<center><a href="/createnewlink" id="mybutton"> Create New Code </a></center>
+	<center><a href="/createnewlink" id="mybutton"> Create New &lt;co/&gt;gather </a></center>
 </div>
 
 
@@ -38,7 +40,13 @@
 $(function(){
   $(window).mousemove(function(e){
     $('.cube').css('transform', 'rotateX(' + - e.pageY + 'deg)' + 'rotateY(' + e.pageX + 'deg)');
-  }); 
+  });
+
+  $(window).mousemove(function(f){
+    $('body').css('background-color', (f.pageX + f.pageY)%255 );
+  });
+
+
 })
 
 
@@ -47,6 +55,38 @@ function show(){
 }
 
 setTimeout(show, 1500 );
+
+$(document).ready(function () {
+   getRandomColor();
+   RandomMouseMoveColor();
+});
+
+function getRandomColor() {
+ document.body.style.background = "#"+((1<<24)*Math.random()|0).toString(16);
+}
+
+function RandomMouseMoveColor() {
+var $win = $(window),
+    w = 0,h = 0,
+    rgb = [],
+    getWidth = function() {
+        w = $win.width();
+        h = $win.height();
+    };
+
+$win.resize(getWidth).mousemove(function(e) {
+
+    rgb = [
+        Math.round(e.pageX/w * 255),
+        Math.round(e.pageY/h * 255),
+        150
+    ];
+
+    $(document.body).css('background','rgb('+rgb.join(',')+')');
+
+}).resize();
+}
+
 
 </script>
 

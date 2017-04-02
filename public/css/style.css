@@ -1,69 +1,65 @@
 
+
 @font-face{
-	src: url(../fonts/myFonts.ttf);
-	font-family: myFonts;
+  src: url(../fonts/myFonts.ttf);
+  font-family: myFonts;
 }
 
 body, html{
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	overflow-x: hidden;
-	/*background-color: #C63D0F;*/
-	/*background-color: #76323f;*/
-	/*background-color: #233237;*/
-	background-color: #af4f3c;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
 }
 *{
-	padding: 0;
-	margin: 0;
-	font-family: myFonts;
+  padding: 0;
+  margin: 0;
+  font-family: myFonts;
 }
 .header{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: #fff;
-	box-shadow: 0px 4px 10px #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px #333;
 }
 
 .footer{
-	position: relative;
-	width: 100%;
-	height: 50px;
-	top: 50%;
-	/*transform: translateX(-50%);*/
-	transform: translateY(-50%);
-	/*text-align: center;*/
+  position: relative;
+  width: 100%;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 a{
-	text-decoration: none;
-	background-color: rgba(0,0,0,0.9);
-	color: #fff;
-	padding: 10px 20px;
-	width: 300px;
-	height: 100%;
-	font-size: 25px;
-	cursor: pointer;
-	 box-shadow: inset 0 0 0 0 #31302B;
-	-webkit-transition: all ease 0.4s;
-	-moz-transition: all ease 0.4s;
-	transition: all ease 0.5s;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0.9);
+  color: #fff;
+  padding: 10px 20px;
+  width: 300px;
+  height: 100%;
+  font-size: 25px;
+  cursor: pointer;
+   box-shadow: inset 0 0 0 0 #31302B;
+  -webkit-transition: all ease 0.4s;
+  -moz-transition: all ease 0.4s;
+  transition: all ease 1s;
 }
 a:hover{
-	box-shadow: inset 240px 0 0 0 #af4f3c;
-	background-color: #af4f3c;
-    color: #FFF;
+  box-shadow: inset 240px 0 0 0 #fff;
+  background-color: #fff;
+    color: #000;
     border: 2px solid #000;
 }
 
 
 .cube {
-	position: absolute;
-	top: 150px;
-	left: calc(100% - 250px);
+  position: absolute;
+  top: 150px;
+  left: calc(100% - 250px);
    width:200px;
    height: 200px;
    /*position: relative;*/
@@ -118,7 +114,7 @@ a:hover{
 
 .cube div.front {
    transform: translateZ(100px); 
-   background-image: url(../images/logo.png);
+   background-image: url(../images/atul.jpg);
    background-repeat: no-repeat;
 
    background-size: contain;
@@ -135,21 +131,26 @@ a:hover{
 }
 
 .about{
-	position: absolute;
-	left: 10%;
-	width: 300px;
-	height: auto;
-	padding: 10px;
-	font-size: 25px;
-	line-height: 40px;
-	letter-spacing: 2px;
-	-webkit-transition: all ease 0.4s;
-	-moz-transition: all ease 0.4s;
-	transition: all ease 0.5s;
+  position: absolute;
+  left: 10%;
+  width: 300px;
+  height: auto;
+  padding: 20px 10px;
+  font-size: 25px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  border: 2px solid #000;
+  /*transform: rotateZ(-5deg);*/
+  -webkit-transition: all ease 0.4s;
+  -moz-transition: all ease 0.4s;
+  transition: all ease 0.5s;
+  border-radius: 10px;
+  perspective:2000px;
 }
 .about.init{
-	top: -500%;
+  top: -500%;
 }
 .about.final{
-	top: 20%;
+  top: 20%;
 }
+
