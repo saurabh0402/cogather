@@ -94,7 +94,14 @@ io.on('connection', function(socket){
 				socket.to(room).emit('codeChanged', data.toString(), lang);
 			});
 		});
-		
+	});
+
+	socket.on('joinVideoRoom', function(room){
+		socket.join(room + 'video');
+	});
+
+	socket.on('videoMsg', function(room, msg){
+		socket.to(room + 'video').emit('msg', msg);
 	});
 });
 
