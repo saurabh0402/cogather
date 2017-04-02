@@ -38,6 +38,16 @@
 
 		op.src = location.origin + '/usr/code/' + codeId + '/index.html';
 
+		var textareas = document.getElementsByTagName("textarea");
+		[].forEach.call(textareas, function(item){
+			item.addEventListener("keydown", function(e){
+				if(e.keyCode == 9){
+					e.preventDefault();
+					document.execCommand("insertText", false, '\t');
+				}
+			});
+		});
+
 	}
 
 	window.onload = init;

@@ -18,7 +18,6 @@
 	});
 
 	socket.on('msg', function(msg){
-		console.log("Hello");
 		msg = JSON.parse(msg);
 		if(!peer) answerCall();
 		if(msg.client)
