@@ -2,19 +2,20 @@
 <html>
 <head>
 	<title> < Co /> gather</title>
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<link rel="stylesheet" type="text/css" href="/css/default.css">
-	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
-	<script src = "/js/socket.io.min.js"> </script>
-	<script src="/js/jquery-3.2.0.min.js"></script>
-	<script src="/js/highlight.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="../public/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/default.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/responsive.css">
+	<script src = "../public/js/socket.io.min.js"> </script>
+	<script src="../public/js/jquery-3.2.0.min.js"></script>
+	<script src="../public/js/highlight.pack.js"></script>
 	<script> hljs.initHighlightingOnLoad();</script>
 	<style class="userCss"></style>
 	<script class="userJs"></script>
 </head>
 <body>
 	<div class="header"> 
-		<img src="/images/logo.png" height="50px" style="float: left">.
+		<img src="../public/images/logo.png" height="50px" style="float: left">.
+		<button style="float: right;margin: 0px 20px;" class = "downloadFile"> Video Chat </button>
 		<button style="float: right;margin: 0px 20px;" class = "downloadFile"> Download Code </button>
 	</div>
 	<div class="htm">
@@ -30,15 +31,7 @@
 		<textarea class="js"></textarea>
 	</div>
 
-	<div class="button wrapper">
-		<button> Disable HTML </button>
-	</div>
-	<div class="button wrapper">
-		<button onclick="disableCss()"> Disable CSS </button>
-	</div>
-	<div class="button wrapper">
-		<button onclick="disableJs()"> Disable JS </button>
-	</div>
+	
 	<iframe class="output"></iframe>
 	<script src = "/js/main.js"> </script>
 </body>
