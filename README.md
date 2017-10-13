@@ -7,6 +7,9 @@ A codepen inspired web app that allows you to collaborate simultaneously and the
  * JavaScript
  * Python
  * Node.js + Socket.io
+
+### Technologies used: 
+ * WebRTC
  
 ### Contributors:
   * Saurabh Kumar ([saurabh0402](https://github.com/saurabh0402))
