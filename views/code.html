@@ -12,14 +12,14 @@
 	<script src = "/js/socket.io.min.js"> </script>
 </head>
 <body>
-	<div class="header"> 
-		<img src="/images/logo.png" height="30px" style="float: left">.
+	<header> 
+		<a href="/"><img src="/images/logo.png" height="30px" style="float: left"></a>.
 		<button class = "videoCall"> <img src = "/images/video.svg"> </button>
 		<button class = "downloadFile"> <img src = "/images/download.svg"> </button>
-	</div>
-	<div class = "videoCont withoutVideo">
+	</header>
+	
+	<div class = "videoCont withoutVideo"></div>
 
-	</div>
 	<div class = "cont withoutVideo">
 		<div class="htm">
 			<div class="tag">HTML</div>
@@ -30,13 +30,15 @@
 			<textarea class="css"></textarea>
 		</div>
 		<div class="j">
-			<div class="tag">JavaScript</div>
+			<div class="tag">JS</div>
 			<textarea class="js"></textarea>
 		</div>
 	</div>
 
-	
+	<div class="head">Your Output</div>
+	<hr/>
 	<iframe class="output"></iframe>
+	<footer> &copy; 2018, All rights reserved<br> Made with <span style="color: #f00;">&#9829;</span> in Hackathon</footer>
 	<script src = "/js/main.js"> </script>
 	<script src = "/js/video.js"> </script>
 </body>
