@@ -1,4 +1,4 @@
-var https = require('https'),
+var http = require('http'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
@@ -6,16 +6,16 @@ var https = require('https'),
 	childProcess = require('child_process'),
 	fs = require('fs');
 
-var option = {
-	key: fs.readFileSync('./certificates/server.key'),
-	cert: fs.readFileSync('./certificates/server.crt'),
-	ca: fs.readFileSync('./certificates/ca.crt'),
-	requestCert: true,
-    rejectUnauthorized: false
-}
+// var option = {
+// 	key: fs.readFileSync('./certificates/server.key'),
+// 	cert: fs.readFileSync('./certificates/server.crt'),
+// 	ca: fs.readFileSync('./certificates/ca.crt'),
+// 	requestCert: true,
+//     rejectUnauthorized: false
+// }
 
 var app = express();
-var server = https.createServer(option, app);
+var server = http.createServer(app);
 var io = socketIo(server);
 
 var languages = {
