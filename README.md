@@ -1,6 +1,7 @@
 ![< co /> Gather logo](https://image.ibb.co/hwiV5a/logo.png)
 ### CodeTogether :alien::alien::alien:
-A codepen inspired web app that allows you to code in collaborative manner simultaneously and then save your work offline :alien:
+
+A codepen inspired web app that allows you to code in collaborative manner simultaneously and you can save your work offline :alien:
 
 ### Stack used:
  * HTML + CSS
