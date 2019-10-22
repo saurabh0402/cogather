@@ -3,92 +3,33 @@
 <html>
 <head>
 	<title> <Co/>Gather</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<script src="/js/jquery-3.2.0.min.js"></script>
 </head>
 <body onload="show()">
 
-<div class="about init">
+<div class="wrapper">
+  <header>
+  	<img src="images/logo.png">
+    <a href="https://github.com/PAVBAN95/cogather" target="blank"><img src="images/gh.png" class="right"></a>
+  </header>
 
-	<div>	
-		This Project is made to code in Real-Time. You can Write code together and can gather(That's why &lt;code/&gt;gather) it in somewhere in your computer directory. 
-		<br> You can have video chat during coding and share your ideas.
-	</div>
-</div>
+  <div class="create">
+  	<a href="/createnewlink"> Create New &lt;co/&gt;gather </a>
+  </div>
 
-<div class="header">
-	<img src="/images/logo.png" style="float: left; margin: 10px 10px" height="50px">
-</div>
+  <div class="about">
+      <div class="head"> About App</div>
+      <p>This Project is made to code with your people sitting at different places. You can Write code together and can Gather it at some place (That's why &lt;code/&gt;gather) in somewhere in your computer directory. 
+      <br> You can do video chatting during coding and share your idea and can discuss problems.</p>
+  </div>
 
-<div class="cube">
-  <div class="top"></div>
-  <div class="right"></div>
-  <div class="bottom"></div>
-  <div class="left"></div>
-  <div class="back"></div>
-  <div class="front"></div>
-</div>
+  <footer> &copy; 2018, All rights reserved<br> Made with <span style="color: #f00;">&#9829;</span> in Hackathon</footer>
+</div>  
 
 
-<div class="footer">
-	<center><a href="/createnewlink" id="mybutton"> Create New &lt;co/&gt;gather </a></center>
-</div>
-
-
-<script type="text/javascript">
-	
-$(function(){
-  $(window).mousemove(function(e){
-    $('.cube').css('transform', 'rotateX(' + - e.pageY + 'deg)' + 'rotateY(' + e.pageX + 'deg)');
-  });
-
-  $(window).mousemove(function(f){
-    $('body').css('background-color', (f.pageX + f.pageY)%255 );
-  });
-
-
-})
-
-
-function show(){
-	document.getElementsByClassName('about')[0].className = "about final";
-}
-
-setTimeout(show, 1500 );
-
-$(document).ready(function () {
-   getRandomColor();
-   RandomMouseMoveColor();
-});
-
-function getRandomColor() {
- document.body.style.background = "#"+((1<<24)*Math.random()|0).toString(16);
-}
-
-function RandomMouseMoveColor() {
-var $win = $(window),
-    w = 0,h = 0,
-    rgb = [],
-    getWidth = function() {
-        w = $win.width();
-        h = $win.height();
-    };
-
-$win.resize(getWidth).mousemove(function(e) {
-
-    rgb = [
-        Math.round(e.pageX/w * 255),
-        Math.round(e.pageY/h * 255),
-        150
-    ];
-
-    $(document.body).css('background','rgb('+rgb.join(',')+')');
-
-}).resize();
-}
-
-
-</script>
 
 </body>
 </html>
