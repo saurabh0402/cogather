@@ -22,5 +22,6 @@ A codepen inspired web app that allows you to code in collaborative manner simul
 
 ### Contributors:
   * Saurabh Kumar ([saurabh0402](https://github.com/saurabh0402))
-  * Pavan Bansal ([pavban95](https://github.com/pavban95))
   * Atul Agarwal ([mysterious-29](https://github.com/mysterious-29))
+  * Pavan Bansal ([pavban95](https://github.com/pavban95))
+
