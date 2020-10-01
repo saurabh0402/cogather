@@ -15,7 +15,7 @@ arcname1 = absname1[len(abs_src) + 1:]
 arcname2 = absname2[len(abs_src) + 1:]
 arcname3 = absname3[len(abs_src) + 1:]
 
-#print('zipping %s as %s ' % (absname,arcname))
+
 newZip.write(absname1, arcname1)
 newZip.write(absname2, arcname2)
 newZip.write(absname3, arcname3)
